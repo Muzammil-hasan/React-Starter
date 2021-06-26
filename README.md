@@ -14,35 +14,27 @@
    If your project directory is in another folder change the path like home/projects/react-starter
 
 ```
-
 sudo python3 make-vhost.py react-starter.local /var/www/html/react-starter/
-
 ```
 
 7. Now reload apache2
 
 ```
 systemctl reload apache2
-
 ```
 
-8. Now go to your IDE terminal and install React and other dependencies by running
+8. Now go to your IDE terminal and install React and other dependencies by running these commands
 
 ```
 npm i --save-dev react react-dom @babel/preset-react
-
-
 ```
 
 ```
 npm i
-
 ```
 
 9. At last compile by
 
 ```
 npx mix
-
-
 ```
