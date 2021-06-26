@@ -1,0 +1,236 @@
+.sectionWork {
+	padding: 5rem ($page-padding * 2);
+	background-color: color(background);
+	position: relative;
+
+	&__heading {
+		padding: 5rem 0 15rem;
+
+		h2 {
+			@include font-size(large);
+			margin: 0;
+			font-weight: 600;
+			font-family: font(heading);
+			padding: 0;
+
+			.word {
+				clip-path: inset(100% 0 0);
+			}
+		}
+
+		p {
+			@include font-size(h5);
+			color: color(main-lighter);
+			font-weight: 400;
+			margin: 0;
+		}
+	}
+
+	&__projects {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__project {
+		@extend .flex-between;
+		align-items: flex-start;
+		padding-bottom: 20vh;
+
+		&__img-wrapper {
+			width: 60%;
+
+			img {
+				width: 100%;
+				height: 33rem;
+				object-fit: cover;
+				object-position: right;
+				clip-path: inset(100% 0 0);
+				transform: translateY(20px);
+
+				&.insure {
+					object-position: 50% 40%;
+				}
+			}
+		}
+
+		&__content {
+			@extend .flex-start;
+			flex-direction: column;
+			align-items: flex-start;
+			position: relative;
+			width: 35%;
+			height: 32rem;
+
+			&__line {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 0.1rem;
+				background-color: color(main);
+				transform: scaleX(0);
+				transform-origin: left;
+			}
+
+			&__count {
+				@include font-size(h4);
+				padding: 1rem 0;
+			}
+
+			&__title {
+				@include font-size(medium);
+				margin: 0;
+				font-weight: 600;
+				font-family: font(heading);
+				line-height: 1.2;
+				padding: 4rem 0 1rem;
+				clip-path: inset(100% 0 0);
+				opacity: 0;
+			}
+
+			p {
+				@include font-size(p);
+				color: color(main-lighter);
+				margin: 0;
+			}
+
+			&__cta {
+				@extend .flex-start;
+				position: absolute;
+				bottom: -1rem;
+				left: 0;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 3.2rem;
+					left: 0%;
+					transform: scaleX(1);
+					transform-origin: left;
+					width: 100%;
+					height: 0.05rem;
+					transition: ease-in-out;
+					background-color: color(main);
+				}
+
+				&:hover::after {
+					animation: slide 0.7s alternate;
+					animation-duration: 1;
+				}
+
+				a {
+					@include font-size(p);
+					font-family: font(primary);
+					color: color(main);
+					position: relative;
+					font-weight: 600;
+					display: block;
+					text-transform: uppercase;
+					letter-spacing: 0.2rem;
+					padding: 1rem 0;
+
+					&.bounce-it {
+						.char {
+							line-height: 1;
+							transform-origin: center bottom;
+							animation-name: bounce-end;
+							animation-timing-function: ease-in-out;
+							animation-iteration-count: 1;
+							animation-fill-mode: both;
+							animation-delay: calc(0.02s * var(--char-index));
+							animation-duration: calc(
+								0.25s + (0.02s * var(--char-total))
+							);
+						}
+
+						&:hover .char {
+							animation-name: bounce-char;
+						}
+					}
+				}
+
+				&.bounce-it {
+					.char {
+						line-height: 1;
+						transform-origin: center bottom;
+						animation-name: bounce-end;
+						animation-timing-function: ease-in-out;
+						animation-iteration-count: 1;
+						animation-fill-mode: both;
+						animation-delay: calc(0.02s * var(--char-index));
+						animation-duration: calc(
+							0.25s + (0.02s * var(--char-total))
+						);
+					}
+
+					&:hover .char {
+						animation-name: bounce-char;
+					}
+				}
+
+				svg {
+					width: 1rem;
+					height: 1rem;
+					margin: -0.15rem 0.5rem;
+					color: color(main);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.sectionWork {
+		padding: 0 $page-padding;
+
+		&__project {
+			flex-direction: column;
+
+			&.insure-work {
+				flex-direction: column-reverse;
+			}
+
+			&__img-wrapper {
+				width: 100%;
+
+				img {
+					width: 100%;
+					height: 24rem;
+					object-position: center;
+				}
+			}
+
+			&__content {
+				margin: 2rem 0;
+				height: 100%;
+				width: 85%;
+
+				&__count {
+					@include font-size(h3);
+				}
+
+				&__title {
+					font-size: 3.982rem;
+					padding: 2rem 0 0;
+					margin: 0;
+				}
+
+				p {
+					width: 90%;
+					margin: 0;
+					padding-bottom: 6rem;
+				}
+
+				&__cta {
+					&::after {
+						top: 3.4rem;
+					}
+
+					a {
+						@include font-size(h5);
+					}
+				}
+			}
+		}
+	}
+}

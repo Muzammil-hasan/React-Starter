@@ -1,0 +1,87 @@
+.header {
+	@extend .flex-between;
+	position: fixed;
+	padding: 0 $page-padding;
+	height: $header-height;
+	width: 100vw;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	pointer-events: none;
+
+	&__logo {
+		pointer-events: auto;
+
+		svg {
+			color: color(main);
+			width: 4rem;
+		}
+	}
+
+	.header__cta {
+		pointer-events: all;
+		@include font-size(p);
+		font-family: font(primary);
+		color: color(main);
+		position: relative;
+		font-weight: 600;
+		display: block;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 2rem;
+			left: 0%;
+			transform: scale(1);
+			transform-origin: left;
+			width: 100%;
+			height: 0.05rem;
+			transition: ease-in-out;
+			background-color: color(main);
+		}
+
+		&:hover::after {
+			animation: slide 0.7s alternate;
+			animation-duration: 1;
+		}
+
+		&.bounce-it {
+			.char {
+				line-height: 1;
+				transform-origin: center bottom;
+				animation-name: bounce-end;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: 1;
+				animation-fill-mode: both;
+				animation-delay: calc(0.02s * var(--char-index));
+				animation-duration: calc(0.25s + (0.02s * var(--char-total)));
+			}
+
+			&:hover .char {
+				animation-name: bounce-char;
+			}
+		}
+
+		&.is-black {
+			@extend .txt-black;
+			@extend .sudo-bg-black;
+		}
+	}
+
+	@media (max-width: 500px) {
+		& {
+			height: ($header-height / 1.5);
+		}
+	}
+
+	// Display Big Height
+
+	@media (min-width: 375px) and (min-height: 810px) {
+		& {
+			height: $header-height;
+		}
+	}
+}

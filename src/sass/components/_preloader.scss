@@ -1,0 +1,23 @@
+.preloader {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 4;
+	background-color: color(background);
+	pointer-events: none;
+	animation-delay: 2s;
+	user-select: none;
+
+	&__count {
+		@include font-size(xx-large);
+		position: fixed;
+		right: 0;
+		top: 85%;
+		font-family: font(heading);
+		font-weight: bolder;
+		color: color(main);
+	}
+}

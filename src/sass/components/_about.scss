@@ -1,0 +1,42 @@
+.about {
+	@extend .flex-center;
+	height: 100vh;
+	background-color: color(accent);
+	color: color(main);
+
+	&__content {
+		padding: 0 ($page-padding * 2);
+
+		&__title {
+			@include font-size(h5);
+			font-weight: 600;
+			margin: 0;
+			font-family: font(primary);
+			text-transform: uppercase;
+			letter-spacing: 0.5rem;
+		}
+
+		p {
+			@include font-size(h2);
+			padding: 3rem;
+			font-weight: 700;
+			line-height: 2;
+			margin: 0;
+		}
+	}
+
+	@media (max-width: 500px) {
+		& {
+			height: 100%;
+
+			&__content {
+				padding: $header-height $page-padding;
+
+				p {
+					@include font-size(h3);
+					padding: 3rem 2rem 3rem 0;
+				}
+			}
+		}
+	}
+}

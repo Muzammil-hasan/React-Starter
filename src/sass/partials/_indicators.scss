@@ -1,0 +1,49 @@
+.menu-indicator {
+	@include font-size(small);
+	user-select: none;
+	position: absolute;
+	left: 8rem;
+	top: 13rem;
+	color: color(background-lighter);
+	text-transform: uppercase;
+	font-weight: 700;
+	transform: rotate(-90deg);
+	letter-spacing: 0.2rem;
+	font-family: font(secondary);
+	opacity: 0;
+}
+
+.scroll-indicator {
+	@extend .indicator;
+	position: fixed;
+	bottom: 10rem;
+	right: 2rem;
+	color: color(main);
+	transform: rotate(90deg);
+
+	@media (max-width: 500px) {
+		& {
+			right: -1.4rem;
+			display: none;
+		}
+	}
+}
+
+.sectionWork__indicator {
+	@extend .indicator;
+	position: absolute;
+	top: 15rem;
+	left: 0rem;
+	color: color(main);
+	transform: rotate(90deg);
+
+	&::before {
+		background-color: color(main);
+	}
+
+	@media (max-width: 500px) {
+		& {
+			display: none;
+		}
+	}
+}
