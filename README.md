@@ -4,7 +4,7 @@
 
 2. Open folder in your IDE
 
-3. Go to `webpack.mix.js` and change virtual host name your project name
+3. Go to `webpack.mix.js` and change virtual host name to your project name
 
 4. Go to the directory if `make-vhost.py` file isn't in your project's home directory
 
